@@ -8,6 +8,7 @@ reddit = praw.Reddit(
 )
 BASE_URL = "https://www.reddit.com/r/"
 happy = ["crochet", "recipes", "crafts", "Shoestring", "Advice", "dadjokes", "Funny"]
+sad = ["MadeMeSmile"]
 rand_num = random.randint(0,len(happy) - 1)
 subreddit_name = happy[rand_num]
 
