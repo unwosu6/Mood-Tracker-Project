@@ -14,6 +14,7 @@ app.config['SECRET_KEY'] = '973ca834e0eda9c6fe6e021a06300d8b' # import secrets s
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
+IMAGES = os.path.join('static', 'images')
 app.config['UPLOAD_FOLDER'] = IMAGES
 
 # for password safety
@@ -23,9 +24,10 @@ bcrypt = Bcrypt(app)
 @app.route("/")
 @app.route("/home")
 def home():
+    form = LoginForm()
     full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'img-01.png')
     full_filename2 = os.path.join(app.config['UPLOAD_FOLDER'], 'icons/favicon.ico')
-    return render_template('index.html', image_1=full_filename, favicon=full_filename2) # , subtitle='Home Page', text='This is the home page')
+    return render_template('index.html', image_1=full_filename, favicon=full_filename2, form=form) # , subtitle='Home Page', text='This is the home page')
 
 
 # @app.route("/daily", methods=['GET', 'POST'])
