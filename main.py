@@ -5,13 +5,16 @@ import time, random, threading # might remove these imports
 from flask_bcrypt import Bcrypt
 from sitedatabase import User
 from flask_behind_proxy import FlaskBehindProxy
+import os
 
 app = Flask(__name__)
 proxied = FlaskBehindProxy(app)
-app.config['SECRET_KEY'] = # must generate
+app.config['SECRET_KEY'] = '973ca834e0eda9c6fe6e021a06300d8b' # import secrets secrets.token_hex(16)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
+
+app.config['UPLOAD_FOLDER'] = IMAGES
 
 # for password safety
 bcrypt = Bcrypt(app)
@@ -20,10 +23,12 @@ bcrypt = Bcrypt(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', subtitle='Home Page', text=gettext('This is the home page'))
+    full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'img-01.png')
+    full_filename2 = os.path.join(app.config['UPLOAD_FOLDER'], 'icons/favicon.ico')
+    return render_template('index.html', image_1=full_filename, favicon=full_filename2) # , subtitle='Home Page', text='This is the home page')
 
 
-@app.route("/daily", methods=['GET', 'POST'])
+# @app.route("/daily", methods=['GET', 'POST'])
 def daily():
     form = Generate() # this does not exist yet
     if form.validate_on_submit():
@@ -31,7 +36,7 @@ def daily():
     return render_template('daily.html', subtitle='Hello Page', text='This is the hello page', form=form)
 
 
-@app.route("/login", methods=['GET', 'POST'])
+# @app.route("/login", methods=['GET', 'POST'])
 def login():    
     form = LoginForm()
     if form.validate_on_submit():
@@ -41,7 +46,7 @@ def login():
     return render_template('login.html', subtitle='Login to access your currated feed', form=form)
 
 
-@app.route("/signup", methods=['GET', 'POST'])
+# @app.route("/signup", methods=['GET', 'POST'])
 def signup():
     form = RegistrationForm()
     if form.validate_on_submit(): # checks if entries are validate_on_submit

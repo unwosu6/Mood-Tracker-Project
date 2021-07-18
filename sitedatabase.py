@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'd8c2cbda9dc2a0bdf511426307014859'
+app.config['SECRET_KEY'] = '973ca834e0eda9c6fe6e021a06300d8b'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
