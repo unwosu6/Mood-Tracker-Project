@@ -22,10 +22,10 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Sign Up')
 
 # error is not being raised for some reason.
-def IsAUser(form, field):
-    user = User.query.filter_by(username=field.data).first()
+def IsAUserEmail(form, field):
+    user = User.query.filter_by(email=field.data).first()
     if not user:
-        raise ValidationError('There is no account with this username.')
+        raise ValidationError('There is no account with this email.')
 # problem might be that if the user does not exist, the app will still look 
 # for them when validating the password
 # to test jusr reomve all validators from line 42
@@ -37,8 +37,8 @@ def PasswordCorrect(form, field):
 
 
 class LoginForm(FlaskForm):
-    username = StringField('Username',
-                           validators=[InputRequired(), IsAUser])
+    email = StringField('Email',
+                        validators=[DataRequired(), Email(), IsAUserEmail])
     password = PasswordField('Password', validators=[InputRequired(), PasswordCorrect])
     submit = SubmitField('Login')
 
