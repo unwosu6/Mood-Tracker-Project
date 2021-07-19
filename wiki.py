@@ -21,8 +21,7 @@ def generate(mood):
         msg += "distract yourself by learning about "
     else:
         # choices = angry
-        msg += "anger can be difficult to deal with. it could help calm you down to"
-        msg += " distract yourself by learning about "
+        msg += "boredom can be difficult to deal with. ~expand your mind~ by learning about "
     msg += title + "."
     return (msg, rand_page_url)
 

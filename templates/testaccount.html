@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>create an account</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+    <div class="container">
+    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+    <fieldset>
+    
+    <legend><center><h2><b>create an account</b></h2></center></legend><br>
+    
+    <div class="form-group">
+    {{ form.name.label(class="col-md-4 control-label") }} <!--<label class="col-md-4 control-label">First Name</label>--> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    {{ form.name(class="form-control", placeholder="name") }} <!--<input  name="first_name" placeholder="First Name" class="form-control"  type="text">-->
+    </div>
+    </div>
+    </div>
+        
+    <div class="form-group">
+    {{ form.username.label(class="col-md-4 control-label") }} <!--<label class="col-md-4 control-label">username</label>-->  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    {{ form.username(class="form-control", placeholder="username") }} <!--<input  name="user_name" placeholder="Username" class="form-control"  type="text">-->
+    </div>
+    </div>
+    </div>
+        
+    <div class="form-group">
+    {{ form.password.label(class="col-md-4 control-label") }} <!--<label class="col-md-4 control-label" >Password</label>--> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    {{ form.password(class="form-control", placeholder="password") }} <!--<input name="user_password" placeholder="Password" class="form-control"  type="password">-->
+    </div>
+    </div>
+    </div>
+        
+    <div class="form-group">
+    {{ form.password.label(class="col-md-4 control-label") }}<label class="col-md-4 control-label" >Confirm Password</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    <input name="confirm_password" placeholder="Confirm Password" class="form-control"  type="password">
+    </div>
+    </div>
+    </div>
+        
+    <div class="form-group">
+    {{ form.email.label(class="col-md-4 control-label") }} <!--<label class="col-md-4 control-label">E-Mail</label>-->  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+    {{ form.email(class="form-control", placeholder="email") }} <!--<input name="email" placeholder="E-Mail Address" class="form-control"  type="text">-->
+        {% if form.email.errors %}
+           {{ form.email(class="form-control") }}
+           <div class="invalid-feedback">
+             {% for error in form.email.errors%}
+                 <span>{{error}}</span>
+             {% endfor %}
+           </div>
+         {% else %}
+             {{ form.email(class="form-control") }}
+         {% endif %}
+    </div>
+    </div>
+    </div>
+        
+    <div class="alert alert-success" role="alert" id="success_message">Success<i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
+        
+    <div class="form-group">
+    <label class="col-md-4 control-label"></label>
+    <div class="col-md-4"><br>
+    {{ form.submit(class="btn btn-warning") }}
+    <!--<button type="submit" class="btn btn-warning" ><span class="glyphicon glyphicon-send"></span></button>-->
+    </div>
+    </div>
+
+    </fieldset>
+    </form>
+    </div>
+    
+    <script src="js/account.js"></script>
+    
+    </body>
+</html>

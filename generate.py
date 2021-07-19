@@ -1,6 +1,6 @@
 import wiki
 import reddit
-# import youtube
+import youtube
 # import spotify
 import random
 
@@ -13,8 +13,8 @@ def generate(mood):
         msg_url_tuple = reddit.generate(mood)
     if content == 'wiki':
         msg_url_tuple = wiki.generate(mood)
-#     elif content == 'youtube':
-#         msg_url_tuple = youtube.generate(mood)
+    if content == 'youtube':
+        msg_url_tuple = youtube.generate(mood)
 #     else:
 #         msg_url_tuple = spotify.generate(mood)
     return msg_url_tuple

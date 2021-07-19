@@ -23,7 +23,7 @@ def generate(mood):
     BASE_URL = "https://www.reddit.com/r/"
     happy = ["crochet", "recipes", "crafts", "Shoestring", "Advice", "dadjokes", "Funny"]
     sad = ["MadeMeSmile", "Advice"]
-    angry = ["MadeMeSmile", "Advice"]
+    bored = ["MadeMeSmile", "Advice", "mildlyinteresting"]
     choices = []
     msg = ""
     if mood == 'happy':
@@ -33,9 +33,8 @@ def generate(mood):
         choices = sad
         msg += "sorry to hear you're feeling down. it could help you to look at this post from "
     else:
-        choices = angry
-        msg += "anger can be difficult to deal with. it could help calm you down to"
-        msg += " distract yourself with a post from "
+        choices = bored
+        msg += "boredom can be difficult to deal with. check out this interesting post from "
     rand_num = random.randint(0, len(choices) - 1)
     subreddit_name = choices[rand_num]
     msg += "r/" + subreddit_name + ". click the button below to be redirected."

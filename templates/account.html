@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <title>Create an Account</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="icon" type="image/png" href="{{ favicon }}"> <!--"images/icons/favicon.ico"/> -->
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/account.css') }}">
+</head>
+<body>
+    <div id="login-box">
+      <div class="left">
+        <h1>Sign up</h1>
+      
+          <input type="text" name="username" placeholder="Username" /><br>
+    <input type="text" name="email" placeholder="E-mail" /><br>
+    <input type="password" name="password" placeholder="Password" /><br>
+    <input type="password" name="password2" placeholder="Retype password" /><br>
+    
+    <input type="submit" name="signup_submit" value="Create my account" />
+     
+     </div>
+    </div>
+</body>
+</html>
