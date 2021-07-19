@@ -1,15 +1,23 @@
 import wiki
 import reddit
+# import youtube
+# import spotify
 import random
 
-def genreate(mood):
-    content_types = ['reddit', 'wiki']
+def generate(mood):
+    content_types = ['reddit', 'wiki', 'youtube', 'spotify']
     rand_num = random.randint(0, len(content_types) - 1)
     content = content_types[rand_num]
-    url = ""
+    msg_url_tuple = ()
     if content == 'reddit':
-        url = reddit.generate(mood)
-    
+        msg_url_tuple = reddit.generate(mood)
     if content == 'wiki':
-        url = wiki.generate(mood)
-    return url
+        msg_url_tuple = wiki.generate(mood)
+#     elif content == 'youtube':
+#         msg_url_tuple = youtube.generate(mood)
+#     else:
+#         msg_url_tuple = spotify.generate(mood)
+    return msg_url_tuple
+
+if __name__ == '__main__':
+    print(generate('happy'))

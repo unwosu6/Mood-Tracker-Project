@@ -9,8 +9,8 @@ app.config['SECRET_KEY'] = '973ca834e0eda9c6fe6e021a06300d8b' # import secrets s
 
 app.config['UPLOAD_FOLDER'] = IMAGES
 
-@app.route("/")
-def home():
+@app.route("/", methods=['GET', 'POST'])
+def login():
     full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'img-01.png')
     full_filename2 = os.path.join(app.config['UPLOAD_FOLDER'], 'icons/favicon.ico')
     form = LoginForm()
