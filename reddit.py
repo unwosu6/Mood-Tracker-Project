@@ -6,18 +6,6 @@ reddit = praw.Reddit(
     client_secret="T-Lp0nn_iTaXryQ9-FKnXYDXvm5rjA",
     user_agent="windows:mood-tracker:v1.0.0 (by /u/QueenProtista)",
 )
-# BASE_URL = "https://www.reddit.com/r/"
-# happy = ["crochet", "recipes", "crafts", "Shoestring", "Advice", "dadjokes", "Funny"]
-# sad = ["MadeMeSmile"]
-# rand_num = random.randint(0,len(happy) - 1)
-# subreddit_name = happy[rand_num]
-
-# subreddit = reddit.subreddit(subreddit_name)
-
-# for submission in subreddit.hot(limit=10):
-#     submission_id = submission.id
-#     submission_url = BASE_URL + subreddit_name + "/comments/" + submission_id
-#     print("Take a look at " + submission.title + ": " + submission_url)
 
 def generate(mood):
     BASE_URL = "https://www.reddit.com/r/"
@@ -43,14 +31,13 @@ def generate(mood):
     rand_num = random.randint(0, 9)
     for submission in submissions:
         submission_id = submission.id
+        submission_title = submission.title
         rand_num -= 1
         if rand_num == 0:
             break    
-    submission_url = BASE_URL + subreddit_name + "/comments/" + submission_id
-    # print("Take a look at \"" + submission.title + "\": " + submission_url)
-    # print(msg)
-    # print(submission_url)
-    return (msg, submission_url)
+    title_joined = submission_title.replace(" ", "_")
+    submission_url = BASE_URL + subreddit_name + "/comments/" + submission_id + "/" + title_joined + "/"
+    return (msg, submission_url.lower())
 
 if __name__ == '__main__':
     print(generate('happy'))

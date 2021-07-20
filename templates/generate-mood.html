@@ -1,0 +1,13 @@
+{% extends "testdaily.html" %}
+{% block content2 %}
+    <h2>{{ subtitle }}</h2>
+    <p>{{ text }}</p>
+    <form method="POST" method="GET" action="{{ url }}">
+        <div class="container-login100-form-btn">
+            <button class="login100-form-btn">
+                <!--<input type="submit" value="create account" name="createaccount"/>-->
+                {{ form.submit(class="container-login100-form-btn login100-form-btn") }}
+            </button>
+        </div>
+    </form>
+{% endblock content2 %}

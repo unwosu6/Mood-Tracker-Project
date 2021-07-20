@@ -20,7 +20,7 @@ def generate(mood):
         msg += "sorry to hear you\'re feeling down. it could help you to "
         msg += "distract yourself by learning about "
     else:
-        # choices = angry
+        # choices = bored
         msg += "boredom can be difficult to deal with. ~expand your mind~ by learning about "
     msg += title + "."
     return (msg, rand_page_url)

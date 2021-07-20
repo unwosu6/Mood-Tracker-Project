@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="icon" type="image/png" href="{{ favicon }}"> <!--"images/icons/favicon.ico"/> -->
+
+	<link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/util.css') }}"> <!-- href="css/util.css"> -->
+	<link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/main.css') }}"> <!--"css/main.css">-->
+
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="{{ image_1 }}" > <!--"images/img-01.png" alt="IMG">-->
+				</div>
+
+				<form method="POST" action="" class="login100-form"> 
+                    
+					<span class="login100-form-title">
+						login
+					</span>
+
+					<div class="wrap-input100">
+                        <!--{{ form.email(class_="input100", placeholder="email") }} <!--<input class="input100" type="text" name="email" placeholder="Email">-->
+                        {% if form.email.errors %}
+                           {{ form.email(class="input100", placeholder="email") }}
+                           <div class="invalid-feedback">
+                             {% for error in form.email.errors%}
+                                 <span>{{error}}</span>
+                             {% endfor %}
+                         {% else %}
+                             {{ form.email(class="input100", placeholder="email") }}
+                         {% endif %}
+                          </div>
+						<!--<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>-->
+					</div>
+
+					<div class="wrap-input100">
+						<!--{{ form.password(class_="input100", placeholder="password") }} <!--<input class="input100" type="password" name="pass" placeholder="Password">-->
+						{% if form.password.errors %}
+                           {{ form.password(class="input100", placeholder="password") }}
+                           <div class="invalid-feedback">
+                             {% for error in form.password.errors%} <!-- look up form.password.errors-->
+                                 <span>{{error}}</span>
+                             {% endfor %}
+                         {% else %}
+                           {{ form.password(class="input100", placeholder="password") }}
+                         {% endif %}
+                            </div>
+                        <!--<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>-->
+					</div>
+					
+					<div class="container-login100-form-btn">
+                        {{ form.submit(class="container-login100-form-btn login100-form-btn") }}
+						<!--<button class="login100-form-btn">
+							Login
+						</button>-->
+                    </div>
+
+                    
+					<!--<div class="text-center p-t-136">
+						<!--<a class="txt2" href="#">
+							create your account
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div> -->
+				</form>
+                <form method="post" action="/createaccount">
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn">
+                                <!--<input type="submit" value="create account" name="createaccount"/>-->
+                                {{ form2.submit(class="container-login100-form-btn login100-form-btn") }}
+                            </button>
+                        </div>
+                    </form>
+			</div>
+		</div>
+	</div>
+	
+    <script src="js/main.js"></script>
+
+</body>
+</html>

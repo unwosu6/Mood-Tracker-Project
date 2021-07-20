@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>mood tracking</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="icon" type="image/png" href="{{ favicon }}"> <!--"images/icons/favicon.ico"/> -->
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/daily.css') }}">
+</head>
+<body>
+    <div class="container">
+    <header>
+      <h2>daily mood tracker</h2>
+      <p>keep track of your mood</p>
+      <div class="mood-selector">
+        select mood:
+        <div id="selector">
+          <i id="mood" class="far fa-smile"></i>
+          <i id="mood" class="far fa-meh"></i>
+          <i id="mood" class="far fa-sad-tear"></i>  
+        </div>
+      </div>  
+    </header>
+    <main id="main">
+    </main>
+    <div class="calendar-main">
+    </div>
+  </div>
+    {% block content %}{% endblock %}
+    <script src="js/mood.js"></script>
+    
+</body>
+</html>  
