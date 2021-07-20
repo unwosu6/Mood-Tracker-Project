@@ -29,7 +29,7 @@ def login():
     form = LoginForm()
     form2 = CreateAccount()
     if form2.validate_on_submit():
-        return redirect(url_for('create-account'))
+        return redirect(url_for('createaccount'))
     if form.validate_on_submit():
         # password_hash = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         flash(f'Hi, {form.name.data}!', 'success')
@@ -37,9 +37,10 @@ def login():
     return render_template('testindex.html', image_1=full_filename, favicon=full_filename2, form=form, form2=form2)
 
 
-@app.route("/create-account", methods=['GET', 'POST'])
-def signup():
+@app.route("/createaccount", methods=['GET', 'POST'])
+def createaccount():
     form = RegistrationForm()
+    full_filename2 = os.path.join(app.config['UPLOAD_FOLDER'], 'icons/favicon.ico')
     if form.validate_on_submit(): # checks if entries are validate_on_submit
         # encrypt data
         # password_hash = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
@@ -52,7 +53,7 @@ def signup():
         else:
             flash(f'Account created for {form.username.data}!', 'success')
             return redirect(url_for('login'))
-    return render_template('testaccount.html', form=form)
+    return render_template('testaccount.html', favicon=full_filename2, form=form)
 
 
 @app.route("/daily", methods=['GET', 'POST'])
@@ -66,9 +67,9 @@ def daily():
 
 @app.route("/generate-happy")
 def happy():
-    # msg, url = generate.generate('happy')
-    # return render_template('generate.html', subtitle=msg, text=url)
-    return render_template('generate.html')
+    msg, url = generate.generate('happy')
+    return render_template('generate.html', subtitle=msg, text=url)
+    # return render_template('generate.html')
 
 
 @app.route("/generate-sad")

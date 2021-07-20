@@ -27,29 +27,43 @@ def generate(mood):
 
     YOUTUBE_KEY = 'AIzaSyAGWidFWjvejleMBAKxrWt8e1-zQ3X9Trg'
     youtube = build('youtube', 'v3', developerKey=YOUTUBE_KEY)
-    mood = 'sad'
-
+    # mood = 'sad'
+    happy = ['try not to laugh']
+    sad = ['cute animals']
+    bored = ['scenic videos', 'try not to laugh']
+    choices = []
+    msg = ""
     r = None
     if mood == 'happy':
-        r = youtube.search().list(q='try not to laugh', part='snippet', type='video', maxResults=10)
-    if mood == 'sad':
-        r = youtube.search().list(q='cute animals', part='snippet', type='video', maxResults=10)
-    if mood == 'angry':
-        r = youtube.search().list(q='scenic videos', part='snippet', type='video', maxResults=10)
-
+        choices = happy
+        msg += "glad to hear you\'re feeling happy! you might like "
+    elif mood == 'sad':
+        choices = sad
+        msg += "sorry to hear you\'re feeling down. it could help you to watch"
+    else:
+        choices = bored
+        msg += "boredom can be difficult to deal with. check out "
+    
+    rand_num = random.randint(0, len(choices) - 1)
+    search_term = choices[rand_num]
+    msg += " this video from the search term: \"" + search_term + "\". click the button below to be redirected."
+    r = youtube.search().list(q=search_term, part='snippet', type='video', maxResults=10)
     res = r.execute()
-    pprint.pprint(res)
+    #pprint.pprint(res)
 
-    list = [None] * 10
-    count = 0
-    for id in res['items']:
-        list[count]= id['id']['videoId']
-        count = count + 1
-    print(list)
+#     list = [None] * 10
+#     count = 0
+#     for id in res['items']:
+#         list[count]= id['id']['videoId']
+#         count = count + 1
+    #print(list)
 
-    index = random.randint(0, 9)
-    #baseUrl = 'https://www.youtube.com/watch?v=' + index
-
+    rand_index = random.randint(0, 9)
+    # res['items'][rand_index]
+    BASE_URL = "https://youtu.be/"
+    video_id = res['items'][rand_index]['id']['videoId'] 
+    video_url = BASE_URL + video_id
+    return msg, video_url
 
 if __name__ == '__main__':
-    print(generate())
+    print(generate('sad'))

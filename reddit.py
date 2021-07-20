@@ -28,10 +28,10 @@ def generate(mood):
     msg = ""
     if mood == 'happy':
         choices = happy
-        msg += "glad to hear you're feeling happy! you might like this post from "
+        msg += "glad to hear you\'re feeling happy! you might like this post from "
     elif mood == 'sad':
         choices = sad
-        msg += "sorry to hear you're feeling down. it could help you to look at this post from "
+        msg += "sorry to hear you\'re feeling down. it could help you to look at this post from "
     else:
         choices = bored
         msg += "boredom can be difficult to deal with. check out this interesting post from "

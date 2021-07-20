@@ -1,93 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>create an account</title>
+<head> 
+    <title>Create an Account</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <link rel="icon" type="image/png" href="{{ favicon }}"> <!--"images/icons/favicon.ico"/> -->
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/account.css') }}">
 </head>
 <body>
-    <div class="container">
-    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
-    <fieldset>
+    <form method="POST" action="{{ url_for('login') }}">
+        {{ form.hidden_tag() }}
     
-    <legend><center><h2><b>create an account</b></h2></center></legend><br>
+    <div id="login-box">
+      <div class="left">
+        <h1>sign up</h1>
+      
+    <!--<input type="text" name="username" placeholder="username" />-->
+    {% if form.username.errors %}
+       {{ form.username(placeholder="username") }}
+       <div class="invalid-feedback">
+         {% for error in form.username.errors%}
+             <span>{{error}}</span>
+         {% endfor %}
+       </div>
+   {% else %}
+       {{ form.username(placeholder="username") }}
+   {% endif %}
+    <br>
+    <!--<input type="text" name="email" placeholder="email" />-->
+    {% if form.email.errors %}
+       {{ form.email(placeholder="email") }}
+       <div class="invalid-feedback">
+         {% for error in form.email.errors%}
+             <span>{{error}}</span>
+         {% endfor %}
+       </div>
+   {% else %}
+       {{ form.email(placeholder="email") }}
+   {% endif %}
+    <br>
+    <!--<input type="password" name="password" placeholder="password" />-->
+    {% if form.password.errors %}
+       {{ form.password(placeholder="password") }}
+       <div class="invalid-feedback">
+         {% for error in form.password.errors%}
+             <span>{{error}}</span>
+         {% endfor %}
+       </div>
+   {% else %}
+       {{ form.password(placeholder="password") }}
+   {% endif %}
+    <br>
+    <!--<input type="password" name="password2" placeholder="confirm password" />-->
+    {% if form.confirm_password.errors %}
+       {{ form.confirm_password(placeholder="confirm password") }}
+       <div class="invalid-feedback">
+         {% for error in form.confirm_password.errors%}
+             <span>{{error}}</span>
+         {% endfor %}
+       </div>
+   {% else %}
+       {{ form.confirm_password(placeholder="confirm password") }}
+   {% endif %}
+    <br>
     
-    <div class="form-group">
-    {{ form.name.label(class="col-md-4 control-label") }} <!--<label class="col-md-4 control-label">First Name</label>--> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-    {{ form.name(class="form-control", placeholder="name") }} <!--<input  name="first_name" placeholder="First Name" class="form-control"  type="text">-->
+    {{ form.submit }} <!--<input type="submit" name="signup_submit" value="create account" />-->
+     
+     </div>
     </div>
-    </div>
-    </div>
-        
-    <div class="form-group">
-    {{ form.username.label(class="col-md-4 control-label") }} <!--<label class="col-md-4 control-label">username</label>-->  
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-    {{ form.username(class="form-control", placeholder="username") }} <!--<input  name="user_name" placeholder="Username" class="form-control"  type="text">-->
-    </div>
-    </div>
-    </div>
-        
-    <div class="form-group">
-    {{ form.password.label(class="col-md-4 control-label") }} <!--<label class="col-md-4 control-label" >Password</label>--> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-    {{ form.password(class="form-control", placeholder="password") }} <!--<input name="user_password" placeholder="Password" class="form-control"  type="password">-->
-    </div>
-    </div>
-    </div>
-        
-    <div class="form-group">
-    {{ form.password.label(class="col-md-4 control-label") }}<label class="col-md-4 control-label" >Confirm Password</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-    <input name="confirm_password" placeholder="Confirm Password" class="form-control"  type="password">
-    </div>
-    </div>
-    </div>
-        
-    <div class="form-group">
-    {{ form.email.label(class="col-md-4 control-label") }} <!--<label class="col-md-4 control-label">E-Mail</label>-->  
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-    {{ form.email(class="form-control", placeholder="email") }} <!--<input name="email" placeholder="E-Mail Address" class="form-control"  type="text">-->
-        {% if form.email.errors %}
-           {{ form.email(class="form-control") }}
-           <div class="invalid-feedback">
-             {% for error in form.email.errors%}
-                 <span>{{error}}</span>
-             {% endfor %}
-           </div>
-         {% else %}
-             {{ form.email(class="form-control") }}
-         {% endif %}
-    </div>
-    </div>
-    </div>
-        
-    <div class="alert alert-success" role="alert" id="success_message">Success<i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
-        
-    <div class="form-group">
-    <label class="col-md-4 control-label"></label>
-    <div class="col-md-4"><br>
-    {{ form.submit(class="btn btn-warning") }}
-    <!--<button type="submit" class="btn btn-warning" ><span class="glyphicon glyphicon-send"></span></button>-->
-    </div>
-    </div>
-
-    </fieldset>
     </form>
-    </div>
-    
-    <script src="js/account.js"></script>
-    
-    </body>
+</body>
 </html>

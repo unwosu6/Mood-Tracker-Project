@@ -5,7 +5,7 @@ import youtube
 import random
 
 def generate(mood):
-    content_types = ['reddit', 'wiki', 'youtube', 'spotify']
+    content_types = ['reddit', 'wiki', 'youtube'] #, 'spotify']
     rand_num = random.randint(0, len(content_types) - 1)
     content = content_types[rand_num]
     msg_url_tuple = ()

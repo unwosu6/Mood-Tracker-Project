@@ -12,8 +12,6 @@ app.config['SECRET_KEY'] = '973ca834e0eda9c6fe6e021a06300d8b'
 bcrypt = Bcrypt(app)
 
 class RegistrationForm(FlaskForm):
-    name = StringField('name',
-                           validators=[DataRequired()])
     username = StringField('username',
                            validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('email',

@@ -14,10 +14,10 @@ def generate(mood):
     msg = ""
     if mood == 'happy':
         # choices = happy
-        msg += "glad to hear you're feeling happy! ~expand your mind~ by learning about "
+        msg += "glad to hear you\'re feeling happy! ~expand your mind~ by learning about "
     elif mood == 'sad':
         # choices = sad
-        msg += "sorry to hear you're feeling down. it could help you to "
+        msg += "sorry to hear you\'re feeling down. it could help you to "
         msg += "distract yourself by learning about "
     else:
         # choices = angry
