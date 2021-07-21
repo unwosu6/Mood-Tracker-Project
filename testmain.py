@@ -5,6 +5,8 @@ from flask_sqlalchemy import SQLAlchemy
 import generate
 from flask_behind_proxy import FlaskBehindProxy
 import datetime
+import visual
+
 
 IMAGES = os.path.join('static', 'images')
 
@@ -154,8 +156,21 @@ def generate_content(mood):
 
 @app.route("/history", methods=['GET', 'POST'])
 def history():
-    msg = session['user_name'] + "\'s mood history"
+    username = session['user_name']
+    msg = username + "\'s mood history"
+    time = []
+    mood = []
+    mood_dict = {'happy': 1, 'sad': 2, 'bored': 3}
+    for row in Data.query.filter_by(username=username):
+        time = row.time 
+        mood = row.mood
+    visual.create_graph(mood_df, 'moodhistory.html')
+    fig.write_html('moodhistory.html')
     return render_template('testhistory.html', subtitle=msg)
 
+
+
+
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0")
+    create_graph()
+    # app.run(debug=True, host="0.0.0.0")
