@@ -1,5 +1,5 @@
-{% extends "testdaily.html" %}
-{% block content2 %}
+{% extends "testlayout.html" %}
+{% block content %}
     <h2>{{ subtitle }}</h2>
     <p>{{ text }}</p>
     <form method="POST" method="GET" action="{{ url }}">
@@ -10,4 +10,4 @@
             </button>
         </div>
     </form>
-{% endblock content2 %}
+{% endblock content %}

@@ -1,7 +1,7 @@
 {% extends "testlayout.html" %}
 {% block content %}
 <body>
-    <form method="POST" action="{{ url_for('daily') }}">
+    <form method="POST" action="">
         {{ form.hidden_tag() }}
         
     <div id="login-box">
@@ -37,8 +37,8 @@
      </div>
     </div>
     </form>
-    <form method="POST" action="{{ url_for('createaccount') }}">
-        {{ form2.submit(class="signup_submit") }}
+    <form method="POST" action="/createaccount">
+        {{ form2.submit }}
     </form>
 </body>
 {% endblock content %}

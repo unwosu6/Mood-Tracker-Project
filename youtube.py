@@ -1,15 +1,18 @@
 from apiclient.discovery import build
 import requests
-import pprint
+# import pprint
 import random
 
 def generate(mood):
     YOUTUBE_KEY = 'AIzaSyAGWidFWjvejleMBAKxrWt8e1-zQ3X9Trg'
     youtube = build('youtube', 'v3', developerKey=YOUTUBE_KEY)
-    # mood = 'sad'
-    happy = ['try not to laugh', 'comedy central', 'i think you should leave with tim robinson', 'Jake and Amir:']
+    happy = ['try not to laugh', 'comedy central',
+             'i think you should leave with tim robinson', 'jake and amir:',
+             'rip vine compilation']
     sad = ['cute animals']
-    bored = ['scenic videos', 'try not to laugh']
+    bored = ['scenic videos', 'kurzgesagt', 'numberphile',
+             'brain games national geographic', 'brainpop tim and moby']
+    bored.append(happy)
     choices = []
     msg = ""
     r = None

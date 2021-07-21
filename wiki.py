@@ -1,14 +1,11 @@
 import wikipedia
 import random
-
-# for title in wiki:
-#     rand_page = wikipedia.page(title)
-#     print(rand_page.url)
+from bs4 import BeautifulSoup
 
 def generate(mood):
-    wiki = wikipedia.random(pages=10)
-    rand_num = random.randint(0,9)
-    title = wiki[rand_num]
+    BeautifulSoup(features="html.parser")
+    wiki = wikipedia.random(pages=1)
+    title = wiki
     rand_page = wikipedia.page(title)
     rand_page_url = rand_page.url
     msg = ""

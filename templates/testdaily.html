@@ -1,13 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>mood tracking</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel="icon" type="image/png" href="{{ favicon }}">
-    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/daily.css') }}">
-</head> -->
 {% extends "testlayout.html" %}
 {% block content %}
 <body>
@@ -20,11 +10,37 @@
     <main id="main">
     </main>
   
-  </div>
-    {% block content2 %}{% endblock %}
-    <script src="js/mood.js"></script>
-    
+    </div>
+
+    <h2>{{ subtitle }}</h2>
+    <p>{{ text }}</p>
+
+    <form method="post" action="/generate-happy">
+        <div class="container-login100-form-btn">
+            <button class="login100-form-btn">
+                <!--<input type="submit" value="create account" name="createaccount"/>-->
+                {{ form.submit(class="container-login100-form-btn login100-form-btn") }}
+            </button>
+        </div>
+    </form>
+
+    <form method="post" action="/generate-sad">
+        <div class="container-login100-form-btn">
+            <button class="login100-form-btn">
+                <!--<input type="submit" value="create account" name="createaccount"/>-->
+                {{ form2.submit(class="container-login100-form-btn login100-form-btn") }}
+            </button>
+        </div>
+    </form>
+
+    <form method="post" action="/generate-bored">
+        <div class="container-login100-form-btn">
+            <button class="login100-form-btn">
+                <!--<input type="submit" value="create account" name="createaccount"/>-->
+                {{ form3.submit(class="container-login100-form-btn login100-form-btn") }}
+            </button>
+        </div>
+    </form>
+
 </body>
 {% endblock content %}
-
-  
