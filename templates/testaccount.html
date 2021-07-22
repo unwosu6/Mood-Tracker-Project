@@ -1,20 +1,45 @@
-{% extends "testlayout.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>create account</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="icon" type="image/png" href="{{ favicon }}"> <!--"images/icons/favicon.ico"/> -->
+  <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/newtest2.css') }}">
+
+</head>
 <body>
+  
+  <div class="col-md-8"><!--<div class="col-md-8">-->
+  <h2>internet shuffler.</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+               <div class="alert alert-{{ category }}"><!--<div class="alert alert-{{ category }}">-->
+                 {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+    </div>
+  
   <div class="limiter">
     <div class="container-login100" id="login-box">
+      
       <div class="wrap-login100">
-    <div class="login100-pic js-tilt" data-tilt>
+        
+        <div class="login100-pic js-tilt" data-tilt>
 					<img src="{{ image_1 }}" > <!--"images/img-01.png" alt="IMG">-->
 				</div>
-    <form method="POST" action="">
-        {{ form.hidden_tag() }}
-    <!--<fieldset>-->
-    
-      <div class="left">
-        <h1>sign up</h1>
+        
+      <form method="POST" action="" class="login100-form validate-form">
+                    {{ form.hidden_tag() }}    
+        <span class="login100-form-title">
+              <h1>create account</h1>
+					</span>
       
-        <!--<input type="text" name="username" placeholder="username" />-->
         <div class="wrap-input100 validate-input">
         {% if form.username.errors %}
            {{ form.username(class="input100", placeholder="username") }}
@@ -26,6 +51,10 @@
        {% else %}
            {{ form.username(class="input100", placeholder="username") }}
        {% endif %}
+          <span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
        </div>
 
         <br>
@@ -41,6 +70,10 @@
        {% else %}
            {{ form.email(placeholder="email") }}
        {% endif %}
+          <span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
         </div>
 
         <br>
@@ -56,6 +89,10 @@
        {% else %}
            {{ form.password(class="input100", placeholder="password") }}
        {% endif %}
+          <span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
         </div>
 
         <br>
@@ -71,17 +108,20 @@
        {% else %}
            {{ form.confirm_password(class="input100", placeholder="confirm password") }}
        {% endif %}
+          <span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
        </div>
 
         <br>
         <div class=container-login100-form-btn>
         {{ form.submit(class="login100-form-btn") }} <!--<input type="submit" name="signup_submit" value="create account" />-->
         </div>
-        </div>
-        </div>
-      </div>
         <!--</fieldset>-->
-    </form>
+      </form>
+      </div>
+    </div>
   </div>
 </body>
-{% endblock content %}
+</html>

@@ -73,14 +73,14 @@ def login():
                 flash(f'There is no account with this email.')
                 return redirect(url_for('login'))
         except Exception:
-            flash(f'There is no account with this email.')
+            flash(f'there is no account with this email.')
             return redirect(url_for('login'))
         else:
             try:
                 # user = User.query.filter_by(email=form.email.data).first()
                 if user.password != form.password.data:
                     flash(
-                      f'The password entered does not match the '
+                      f'the password entered does not match the '
                       'login credentials for the username provided.'
                     )
                     return redirect(url_for('login'))

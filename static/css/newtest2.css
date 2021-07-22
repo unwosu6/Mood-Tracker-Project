@@ -157,10 +157,12 @@ iframe {
   color: #333333;
   line-height: 1.2;
   text-align: center;
-
+  
   width: 100%;
   display: block;
   padding-bottom: 54px;
+  padding-top: 54px;
+  background-color: white;
 }
 
 .txt1 {
@@ -215,6 +217,23 @@ iframe {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 177px 130px 33px 95px;
+}
+
+.wrap-login200 {
+  width: 960px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 177px 130px 33px 95px;
+  justify-content: center;
 }
 
 .login100-pic {
