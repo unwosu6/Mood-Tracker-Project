@@ -83,12 +83,13 @@ def login():
                       f'The password entered does not match the '
                       'login credentials for the username provided.'
                     )
+                    return redirect(url_for('login'))
             except Exception:
-                return redirect(url_for('login'))
+                return redirect(url_for('daily'))
             else:
                 session['user_name'] = user.username
                 username = session['user_name']
-                flash(f'Hi, {username}!', 'success')
+                flash(f'hi, {username}!', 'success')
                 return redirect(url_for('daily'))
     if form2.validate_on_submit():
         if request.method == 'POST':
@@ -111,18 +112,19 @@ def createaccount():
     full_filename2 = os.path.join(
       app.config['UPLOAD_FOLDER'], 'icons/favicon.ico'
     )
+    full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'img-01.png')
     if form.validate_on_submit():
         user = User(
           username=form.username.data, email=form.email.data,
           password=form.password.data
         )
         checkuser = User.query.filter_by(email=form.email.data).first()
-            if checkuser:
-                flash(
+        if checkuser:
+            flash(
               f'there is already an account with the email {form.email.data}.',
               'error'
             )
-                return redirect(url_for('login'))
+            return redirect(url_for('login'))
     try:
         db.session.add(user)
         db.session.commit()
@@ -135,7 +137,7 @@ def createaccount():
         flash(f'account created for {form.username.data}!', 'success')
         return redirect(url_for('login'))
     return render_template(
-      'testaccount.html', favicon=full_filename2, form=form
+      'testaccount.html', favicon=full_filename2, form=form, image_1=full_filename
     )
 
 

@@ -1,77 +1,87 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head> 
-    <title>Create an Account</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel="icon" type="image/png" href="{{ favicon }}"> 
-    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/testaccount.css') }}">
-</head>-->
 {% extends "testlayout.html" %}
 {% block content %}
 <body>
+  <div class="limiter">
+    <div class="container-login100" id="login-box">
+      <div class="wrap-login100">
+    <div class="login100-pic js-tilt" data-tilt>
+					<img src="{{ image_1 }}" > <!--"images/img-01.png" alt="IMG">-->
+				</div>
     <form method="POST" action="">
         {{ form.hidden_tag() }}
-    <fieldset>
-    <div id="login-box">
+    <!--<fieldset>-->
+    
       <div class="left">
         <h1>sign up</h1>
       
-    <!--<input type="text" name="username" placeholder="username" />-->
-    {% if form.username.errors %}
-       {{ form.username(placeholder="username") }}
-       <div class="invalid-feedback is-invalid">
-         {% for error in form.username.errors%}
-             <span>{{error}}</span>
-         {% endfor %}
+        <!--<input type="text" name="username" placeholder="username" />-->
+        <div class="wrap-input100 validate-input">
+        {% if form.username.errors %}
+           {{ form.username(class="input100", placeholder="username") }}
+           <div class="validate-input">
+             {% for error in form.username.errors%}
+                 <span>{{error}}</span>
+             {% endfor %}
+           </div>
+       {% else %}
+           {{ form.username(class="input100", placeholder="username") }}
+       {% endif %}
        </div>
-   {% else %}
-       {{ form.username(placeholder="username") }}
-   {% endif %}
-    <br>
-    <!--<input type="text" name="email" placeholder="email" />-->
-    {% if form.email.errors %}
-       {{ form.email(placeholder="email") }}
-       <div class="invalid-feedback is-invalid">
-         {% for error in form.email.errors%}
-             <span>{{error}}</span>
-         {% endfor %}
+
+        <br>
+        <!--<input type="text" name="email" placeholder="email" />-->
+        <div class="wrap-input100 validate-input">
+        {% if form.email.errors %}
+           {{ form.email(class="input100", placeholder="email") }}
+           <div class="right">
+             {% for error in form.email.errors%}
+                 <span>{{error}}</span>
+             {% endfor %}
+           </div>
+       {% else %}
+           {{ form.email(placeholder="email") }}
+       {% endif %}
+        </div>
+
+        <br>
+        <!--<input type="password" name="password" placeholder="password" />-->
+        <div class="wrap-input100 validate-input">
+        {% if form.password.errors %}
+           {{ form.password(class="input100", placeholder="password") }}
+           <div class="right">
+             {% for error in form.password.errors%}
+                 <span>{{error}}</span>
+             {% endfor %}
+           </div>
+       {% else %}
+           {{ form.password(class="input100", placeholder="password") }}
+       {% endif %}
+        </div>
+
+        <br>
+        <!--<input type="password" name="password2" placeholder="confirm password" />-->
+        <div class="wrap-input100 validate-input">
+        {% if form.confirm_password.errors %}
+           {{ form.confirm_password(class="input100", placeholder="confirm password") }}
+             <div class="right">
+             {% for error in form.confirm_password.errors%}
+                 <span>{{error}}</span>
+             {% endfor %}
+             </div>
+       {% else %}
+           {{ form.confirm_password(class="input100", placeholder="confirm password") }}
+       {% endif %}
        </div>
-   {% else %}
-       {{ form.email(placeholder="email") }}
-   {% endif %}
-    <br>
-    <!--<input type="password" name="password" placeholder="password" />-->
-    {% if form.password.errors %}
-       {{ form.password(placeholder="password") }}
-       <div class="invalid-feedback is-invalid">
-         {% for error in form.password.errors%}
-             <span>{{error}}</span>
-         {% endfor %}
-       </div>
-   {% else %}
-       {{ form.password(placeholder="password") }}
-   {% endif %}
-    <br>
-    <!--<input type="password" name="password2" placeholder="confirm password" />-->
-    {% if form.confirm_password.errors %}
-       {{ form.confirm_password(placeholder="confirm password") }}
-       <div class="invalid-feedback">
-         {% for error in form.confirm_password.errors%}
-             <span>{{error}}</span>
-         {% endfor %}
-       </div>
-   {% else %}
-       {{ form.confirm_password(placeholder="confirm password") }}
-   {% endif %}
-    <br>
-    
-    {{ form.submit() }} <!--<input type="submit" name="signup_submit" value="create account" />-->
-     
-     </div>
-    </div>
-        </fieldset>
+
+        <br>
+        <div class=container-login100-form-btn>
+        {{ form.submit(class="login100-form-btn") }} <!--<input type="submit" name="signup_submit" value="create account" />-->
+        </div>
+        </div>
+        </div>
+      </div>
+        <!--</fieldset>-->
     </form>
+  </div>
 </body>
 {% endblock content %}
