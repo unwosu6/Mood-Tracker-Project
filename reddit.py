@@ -7,26 +7,34 @@ reddit = praw.Reddit(
     user_agent="windows:mood-tracker:v1.0.0 (by /u/QueenProtista)",
 )
 
+
 def generate(mood):
     BASE_URL = "https://www.reddit.com/r/"
-    happy = ["crochet", "recipes", "crafts", "Shoestring", "Advice", "dadjokes", "Funny"]
+    happy = [
+      "crochet", "recipes", "crafts", "Shoestring",
+      "Advice", "dadjokes", "Funny"
+    ]
     sad = ["MadeMeSmile", "Advice"]
     bored = ["MadeMeSmile", "Advice", "mildlyinteresting"]
     choices = []
     msg = ""
     if mood == 'happy':
         choices = happy
-        msg += "glad to hear you\'re feeling happy! you might like this post from "
+        msg += "glad to hear you\'re feeling happy! " \
+               "you might like this post from "
     elif mood == 'sad':
         choices = sad
-        msg += "sorry to hear you\'re feeling down. it could help you to look at this post from "
+        msg += "sorry to hear you\'re feeling down. " \
+               "it could help you to look at this post from "
     else:
         choices = bored
-        msg += "boredom can be difficult to deal with. check out this interesting post from "
+        msg += "boredom can be difficult to deal with. check out " \
+               "this interesting post from "
     rand_num = random.randint(0, len(choices) - 1)
     subreddit_name = choices[rand_num]
     msg += "r/" + subreddit_name + ". click the button below to be redirected."
     subreddit = reddit.subreddit(subreddit_name)
+    subred = "r/" + subreddit_name
     submissions = subreddit.hot(limit=10)
     rand_num = random.randint(0, 9)
     for submission in submissions:
@@ -34,11 +42,14 @@ def generate(mood):
         submission_title = submission.title
         rand_num -= 1
         if rand_num == 0:
-            break    
+            break
     title_joined = submission_title.replace(" ", "_")
-    submission_url = BASE_URL + subreddit_name + "/comments/" + submission_id + "/" + title_joined + "/"
-    return (msg, submission_url.lower())
+    submission_url = (
+                      BASE_URL + subreddit_name + "/comments/" +
+                      submission_id + "/" + title_joined + "/"
+    )
+    return (msg, submission_url.lower(), subred)
+
 
 if __name__ == '__main__':
     print(generate('happy'))
-    

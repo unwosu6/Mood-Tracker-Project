@@ -3,6 +3,7 @@ import requests
 # import pprint
 import random
 
+
 def generate(mood):
     YOUTUBE_KEY = 'AIzaSyAGWidFWjvejleMBAKxrWt8e1-zQ3X9Trg'
     youtube = build('youtube', 'v3', developerKey=YOUTUBE_KEY)
@@ -25,18 +26,21 @@ def generate(mood):
     else:
         choices = bored
         msg += "boredom can be difficult to deal with. check out "
-    
     rand_num = random.randint(0, len(choices) - 1)
     search_term = choices[rand_num]
-    msg += " this video from the search term: \"" + search_term + "\". click the button below to be redirected."
-    r = youtube.search().list(q=search_term, part='snippet', type='video', maxResults=10)
+    msg += (" this video from the search term: \"" +
+            search_term + "\". click the button below to be redirected.")
+    r = youtube.search().list(q=search_term,
+                              part='snippet', type='video', maxResults=10)
     res = r.execute()
 
     rand_index = random.randint(0, 9)
     BASE_URL = "https://www.youtube.com/watch?v="
-    video_id = res['items'][rand_index]['id']['videoId'] 
+    video_id = res['items'][rand_index]['id']['videoId']
     video_url = BASE_URL + video_id
-    return msg, video_url
+    return (msg, video_url, search_term)
+    # return msg, video_url
+
 
 if __name__ == '__main__':
     print(generate('sad'))

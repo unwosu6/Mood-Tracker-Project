@@ -6,11 +6,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<link rel="icon" type="image/png" href="{{ favicon }}"> <!--"images/icons/favicon.ico"/> -->
-    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/util.css') }}">
-	<link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/main.css') }}"> <!--"css/main.css">-->
+  <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/newtest.css') }}">
 
 </head>
 <body>
+  
+  <div class="col-md-8"><!--<div class="col-md-8">-->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+               <div class="alert alert-{{ category }}"><!--<div class="alert alert-{{ category }}">-->
+                 {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+    </div>
 	
 	<div class="limiter">
 		<div class="container-login100">
@@ -19,14 +31,24 @@
 					<img src="{{ image_1 }}" > <!--"images/img-01.png" alt="IMG">-->
 				</div>
 
-				<form class="login100-form validate-form">
-                    
+				<form method="POST" action="" class="login100-form validate-form">
+                    {{ form.hidden_tag() }}
 					<span class="login100-form-title">
 						User Login
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="email" placeholder="Email">
+                        <!--<input class="input100" type="text" name="email" placeholder="Email">-->
+            {% if form.email.errors %}
+               {{ form.email(class="input100", placeholder="email") }}
+               <div class="right"> <!--<div class="invalid-feedback">-->
+                 {% for error in form.email.errors %}
+                     <span>{{error}}</span>
+                 {% endfor %}
+               </div>
+           {% else %}
+               {{ form.email(class="input100", placeholder="email") }}
+           {% endif %}
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -34,7 +56,17 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<!--<input class="input100" type="password" name="pass" placeholder="Password">-->
+            {% if form.password.errors %}
+               {{ form.password(class="input100", placeholder="password") }}
+               <div class="right"> <!--<div class="invalid-feedback">-->
+                 {% for error in form.password.errors%}
+                     <span>{{error}}</span>
+                 {% endfor %}
+               </div>
+           {% else %}
+               {{ form.password(class="input100", placeholder="password") }}
+           {% endif %}
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -42,9 +74,10 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+            {{ form.submit(class="login100-form-btn") }}
+						<!--<button class="login100-form-btn">
 							Login
-						</button>
+						</button>-->
 					</div>
 
 					<div class="text-center p-t-12">
@@ -56,18 +89,23 @@
 						</a>
 					</div>
 
-					<div class="text-center p-t-136">
-						<a class="txt2" href="#">
-							Create your Account
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div>
+					
 				</form>
+        <div class=container-login100-form-btn>
+          <form method="POST" action="/createaccount">
+                {{ form2.hidden_tag() }}
+          <div class="text-center p-t-136">
+						<span class="txt1">
+							new?
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</span>
+					</div>
+              {{ form2.submit() }}
+	       </form>
+        </div>
+   
 			</div>
 		</div>
 	</div>
-	
-	<script src="js/main.js"></script>
-
 </body>
 </html>

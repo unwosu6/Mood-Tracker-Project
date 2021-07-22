@@ -3,8 +3,8 @@
 <body>
     <div class="container">
     <header>
-      <h2>daily mood tracker</h2>
-      <p>keep track of your mood</p>
+      <h2>mood tracker</h2>
+      <p>while online, take a moment to think about how what you consume makes you feel</p>
  
     </header>
     <main id="main">
@@ -12,7 +12,7 @@
   
     </div>
 
-    <h2>{{ subtitle }}</h2>
+    <h1>{{ subtitle }}</h1>
     <p>{{ text }}</p>
 
     <form method="post" action="/generate-happy">
@@ -41,6 +41,14 @@
             </button>
         </div>
     </form>
-
+  
+  <form method="post" action="/history">
+        <div class="container-login100-form-btn">
+            <button class="login100-form-btn">
+                <!--<input type="submit" value="create account" name="createaccount"/>-->
+                {{ form4.submit(class="container-login100-form-btn login100-form-btn") }}
+            </button>
+        </div>
+    </form>
 </body>
 {% endblock content %}
