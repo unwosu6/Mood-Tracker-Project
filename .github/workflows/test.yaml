@@ -27,6 +27,7 @@ jobs:
           pip install wikipedia
           pip install praw
           pip install --upgrade google-api-python-client
+          pip install plotly
       - name: Test with unittest
         run: |
           python3 -m unittest tests/testDaily.py
