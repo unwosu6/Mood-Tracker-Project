@@ -33,7 +33,7 @@ jobs:
           python3 -m unittest tests/testDaily.py
           python3 -m unittest tests/testLogin.py
           python3 -m unittest tests/testPage.py
-          python3 -m unittest tests/testRegristration.py
+          python3 -m unittest tests/testRegistration.py
       - name: Code coverage report
         run: |
           python3 -m coverage run -m unittest tests/testDaily.py
