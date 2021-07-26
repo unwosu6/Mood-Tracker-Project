@@ -1,7 +1,7 @@
 import unittest, sys
 
 sys.path.append('Mood-Tracker-Project') # imports python file from parent directory
-from testmain import app #imports flask app object
+from main import app #imports flask app object
 
 class TestForms(unittest.TestCase):
 

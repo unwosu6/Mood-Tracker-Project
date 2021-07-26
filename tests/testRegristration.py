@@ -1,7 +1,7 @@
 import unittest, sys, os
 
 sys.path.append('Mood-Tracker-Project')
-from testmain import app, db
+from main import app, db
 
 class UsersTests(unittest.TestCase):
 
