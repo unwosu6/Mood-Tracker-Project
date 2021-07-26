@@ -24,6 +24,9 @@ jobs:
           pip install pandas
           pip install wtforms
           pip install email_validator
+          pip install wikipedia
+          pip install praw
+          pip install apiclient
       - name: Test with unittest
         run: |
           python3 -m unittest tests/testDaily.py
