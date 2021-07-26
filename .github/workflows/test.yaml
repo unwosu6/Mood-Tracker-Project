@@ -17,6 +17,10 @@ jobs:
           python -m pip install --upgrade pip pytest
           pip install coverage
           python -m pip install --upgrade pip pycodestyle
+          pip install flask
+          pip install flask_sqlalchemy
+          pip install flask_behind_proxy
+          pip install pandas
       - name: Test with unittest
         run: |
           python3 -m unittest tests/testDaily.py
