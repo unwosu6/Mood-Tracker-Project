@@ -26,7 +26,7 @@ jobs:
           pip install email_validator
           pip install wikipedia
           pip install praw
-          pip install apiclient
+          pip install --upgrade google-api-python-client
       - name: Test with unittest
         run: |
           python3 -m unittest tests/testDaily.py
