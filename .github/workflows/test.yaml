@@ -23,6 +23,7 @@ jobs:
           pip install flask_behind_proxy
           pip install pandas
           pip install wtforms
+          pip install email_validator
       - name: Test with unittest
         run: |
           python3 -m unittest tests/testDaily.py
