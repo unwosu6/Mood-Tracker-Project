@@ -17,9 +17,6 @@ jobs:
           python -m pip install --upgrade pip pytest
           pip install coverage
           python -m pip install --upgrade pip pycodestyle
-      - name: Check Style
-        run: |
-          pycodestyle --first *.py
       - name: Test with unittest
         run: |
           python3 -m unittest tests/testDaily.py
@@ -34,3 +31,6 @@ jobs:
           python3 -m coverage run -m unittest tests/testRegistration.py
           python3 -m coverage report
           python3 -m coverage html
+      - name: Check Style
+        run: |
+          pycodestyle --first *.py
