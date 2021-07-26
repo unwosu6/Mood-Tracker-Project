@@ -22,6 +22,7 @@ jobs:
           pip install flask_sqlalchemy
           pip install flask_behind_proxy
           pip install pandas
+          pip install wtforms
       - name: Test with unittest
         run: |
           python3 -m unittest tests/testDaily.py
