@@ -65,7 +65,6 @@ six==1.16.0
 soupsieve==2.2.1
 SpeechRecognition==3.8.1
 SQLAlchemy==1.4.19
-ssh-import-id==5.7
 tenacity==8.0.1
 Turbo-Flask==0.6.0
 typing-extensions==3.10.0.0
