@@ -74,8 +74,6 @@ soupsieve==2.2.1
 SpeechRecognition==3.8.1
 SQLAlchemy==1.4.19
 Turbo-Flask==0.6.0
-unattended-upgrades==0.1
-update-checker==0.18.0
 uritemplate==3.0.1
 urllib3==1.22
 webdriver-manager==3.4.2
