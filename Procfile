@@ -1,1 +1,1 @@
-Web: guincorn main:app
+web: guincorn internetshuffler:app
