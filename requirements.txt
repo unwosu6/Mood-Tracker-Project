@@ -13,5 +13,5 @@ pytest
 pycodestyle
 wikipedia==1.4.0
 praw==7.3.0
---upgrade google-api-python-client
+google-api-python-client
 plotly
