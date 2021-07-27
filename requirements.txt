@@ -47,6 +47,8 @@ parse==1.19.0
 parse-type==0.5.2
 Pillow==8.2.0
 pluggy==0.13.1
+plotly==5.1.0
+tenacity==8.0.1
 praw==7.3.0
 prawcore==2.3.0
 protobuf==3.17.3
