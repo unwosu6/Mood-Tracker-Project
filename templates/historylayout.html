@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> 
-  <title>internet shuffler</title>
+    <title>internet shuffler</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="icon" type="image/png" href="{{ favicon }}"> <!--"images/icons/favicon.ico"/> -->
     <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/util.css') }}">
     <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/newtest2.css') }}">
-
 </head>
-<body>  
-
+    
     <div class="col-md-8">
       <h2>internet shuffler.</h2>
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -24,18 +22,14 @@
           {% endif %}
         {% endwith %}
     </div>
-  
 <div class = "limiter">
   <div class="container-login100">
-    
 			<div class="wrap-login100">
-        
-				<div class="login100-pic js-tilt" data-tilt>
+				<div class="login200-pic js-tilt" data-tilt>
           
     {% block content %}{% endblock %}
         </div>
       </div>
   </div>
   </div>
-  </body>
 </html>

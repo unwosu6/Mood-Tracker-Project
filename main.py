@@ -186,6 +186,9 @@ def generate_content(mood):
     time = datetime.now()
     username = session['user_name']
     data = Data(username=username, time=time, mood=mood, content=search)
+    htmlname = 'generate-mood.html'
+    if url.startswith("https://www.youtube"):
+      htmlname = 'generate-mood-youtube.html'
     try:
         db.session.add(data)
         db.session.commit()
@@ -195,9 +198,9 @@ def generate_content(mood):
         if request.form.get('takemethere') == 'Take me there':
             return redirect(url_for(url))
     elif request.method == 'GET':
-        return render_template('generate-mood.html', form=form)
+        return render_template(htmlname, form=form)
     return render_template(
-      'generate-mood.html', subtitle=msg, url=url, form=form
+      htmlname, subtitle=msg, url=url, form=form
     )
 
 

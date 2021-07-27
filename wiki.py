@@ -23,6 +23,7 @@ def generate(mood):
         msg += "boredom can be difficult to deal with. ~expand your mind~" \
                " by learning about "
     msg += title + "."
+    # return (msg, "https://www.google.com/", title)
     return (msg, rand_page_url, title)
 
 

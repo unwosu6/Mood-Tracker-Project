@@ -13,7 +13,7 @@ def generate(mood):
     sad = ['cute animals']
     bored = ['scenic videos', 'kurzgesagt', 'numberphile',
              'brain games national geographic', 'brainpop tim and moby']
-    bored.append(happy)
+    bored.extend(happy)
     choices = []
     msg = ""
     r = None
@@ -39,7 +39,6 @@ def generate(mood):
     video_id = res['items'][rand_index]['id']['videoId']
     video_url = BASE_URL + video_id
     return (msg, video_url, search_term)
-    # return msg, video_url
 
 
 if __name__ == '__main__':

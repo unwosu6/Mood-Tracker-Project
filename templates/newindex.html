@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="icon" type="image/png" href="{{ favicon }}"> <!--"images/icons/favicon.ico"/> -->
+  <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='css/newtest2.css') }}">
+</head>
+<body>
+
+<h1>Internet Shuffler</h1>
+
+<table style="height:100%;width:100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0;border:1px solid">
+  <div class="col-md-8">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+               <div class="alert alert-{{ category }}"><!--<div class="alert alert-{{ category }}">-->
+                 {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+  </div>
+  <tr>
+    <th>Month</th>
+    <th>Savings</th>
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>$100</td>
+  </tr>
+  <tr>
+    <td>February</td>
+    <td>$80</td>
+  </tr>
+</table>
+
+</body>
+</html>

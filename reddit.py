@@ -15,7 +15,7 @@ def generate(mood):
       "Advice", "dadjokes", "Funny"
     ]
     sad = ["MadeMeSmile", "Advice"]
-    bored = ["MadeMeSmile", "Advice", "mildlyinteresting"]
+    bored = ["MadeMeSmile", "Advice", "mildlyinteresting", "crochet"]
     choices = []
     msg = ""
     if mood == 'happy':
@@ -48,7 +48,7 @@ def generate(mood):
                       BASE_URL + subreddit_name + "/comments/" +
                       submission_id + "/" + title_joined + "/"
     )
-    return (msg, submission_url.lower(), subred)
+    return (msg, submission_url, subred)
 
 
 if __name__ == '__main__':

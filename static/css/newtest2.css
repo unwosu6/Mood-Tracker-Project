@@ -27,7 +27,7 @@
 body, html {
 	height: 100%;
 	font-family: Poppins-Regular, sans-serif;
-  background-color: lightblue;
+  background-color: #ffe3f5;
 }
 
 a {
@@ -40,6 +40,10 @@ a {
 	-webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
+}
+
+table, th, td {
+  border: none
 }
 
 a:focus {
@@ -197,10 +201,18 @@ iframe {
   align-items: center;
   padding: 15px;
   background: #9053c7;
+  background: -webkit-linear-gradient(-135deg, #ffe3f5, #63d8ff);
+  background: -o-linear-gradient(-135deg, #ffe3f5, #63d8ff);
+  background: -moz-linear-gradient(-135deg, #ffe3f5, #63d8ff);
+  background: linear-gradient(-135deg, #ffe3f5, #63d8ff);
+  /*background: -webkit-linear-gradient(-135deg, #ffe3f5, #e3f6ff);
+  background: -o-linear-gradient(-135deg, #ffe3f5, #e3f6ff);
+  background: -moz-linear-gradient(-135deg, #ffe3f5, #e3f6ff);
+  background: linear-gradient(-135deg, #ffe3f5, #e3f6ff);
   background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
   background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
   background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #c850c0, #4158d0);*/
 }
 
 .wrap-login100 {
@@ -215,7 +227,7 @@ iframe {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center; /*space-between;*/
   padding: 177px 130px 33px 95px;
 }
 
@@ -232,12 +244,16 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 177px 130px 33px 95px;
+  padding: 177px 50px 33px 50px;
   justify-content: center;
 }
 
 .login100-pic {
   width: 316px;
+}
+
+.login200-pic {
+  width: 100%;
 }
 
 .login100-pic img {

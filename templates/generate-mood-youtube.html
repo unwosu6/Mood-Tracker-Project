@@ -1,18 +1,13 @@
-{% extends "historylayout.html" %}
+{% extends "testlayout.html" %}
 {% block content %}
-<body>
     <h2>{{ subtitle }}</h2>
     <p>{{ text }}</p>
-    {% include 'moodhistorytlgraph.html' %}
-  <br>
-  <br>
-    {% include 'moodhistorypiegraph.html' %}
-  <form method="post" action="/daily">
+    <form method="POST" method="GET" action="{{ url }}">
         <div class="container-login100-form-btn">
             <button class="login100-form-btn">
+                <!--<input type="submit" value="create account" name="createaccount"/>-->
                 {{ form.submit(class="container-login100-form-btn login100-form-btn") }}
             </button>
         </div>
     </form>
-</body>
 {% endblock content %}
