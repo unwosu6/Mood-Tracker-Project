@@ -68,7 +68,6 @@ SQLAlchemy==1.4.19
 tenacity==8.0.1
 Turbo-Flask==0.6.0
 typing-extensions==3.10.0.0
-unattended-upgrades==0.1
 update-checker==0.18.0
 uritemplate==3.0.1
 urllib3==1.22
