@@ -11,3 +11,7 @@ flask_behind_proxy==0.1.1
 flask_sqlalchemy
 pytest
 pycodestyle
+wikipedia==1.4.0
+praw==7.3.0
+--upgrade google-api-python-client
+plotly
