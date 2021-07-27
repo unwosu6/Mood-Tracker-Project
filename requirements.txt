@@ -1,4 +1,4 @@
-asn1crypto==0.24.0
+git asn1crypto==0.24.0
 attrs==21.2.0
 beautifulsoup4==4.9.3
 behave==1.2.6
@@ -55,8 +55,6 @@ pytest==6.2.4
 python-dateutil==2.8.1
 pytz==2021.1
 pyxdg==0.25
-PyYAML==3.12
-requests==2.18.4
 rsa==4.7.2
 scipy==1.5.4
 SecretStorage==2.3.1
