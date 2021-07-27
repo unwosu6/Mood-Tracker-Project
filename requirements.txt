@@ -74,7 +74,6 @@ soupsieve==2.2.1
 SpeechRecognition==3.8.1
 SQLAlchemy==1.4.19
 Turbo-Flask==0.6.0
-typing-extensions==3.10.0.0
 unattended-upgrades==0.1
 update-checker==0.18.0
 uritemplate==3.0.1
