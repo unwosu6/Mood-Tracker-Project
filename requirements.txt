@@ -1,3 +1,4 @@
+gunicorn==20.0.4
 apiclient==1.0.4
 asn1crypto==0.24.0
 bcrypt==3.2.0
